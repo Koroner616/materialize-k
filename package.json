@@ -1,8 +1,7 @@
 {
-  "name": "@materializecss/materialize",
-  "description": "The responsive front-end library based on Material Design from Google.",
-  "author": "The Materialize Team",
-  "homepage": "https://materializeweb.com",
+  "name": "@koroner616/materialize-k",
+  "description": "Fork privado de Materialize CSS adaptado para uso interno.",
+  "author": "Koroner616",
   "version": "2.2.2",
   "style": "dist/css/materialize.css",
   "sass": "sass/materialize.scss",
@@ -14,30 +13,14 @@
     "import": "./dist/js/materialize.mjs",
     "require": "./dist/js/materialize.cjs.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/materializecss/materialize.git"
-  },
-  "bugs": {
-    "url": "https://github.com/materializecss/materialize/issues"
-  },
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/materializecss"
-    },
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/materialize"
-    }
-  ],
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run build && jasmine-browser-runner runSpecs",
+    "test": "pnpm build && jasmine-browser-runner runSpecs",
     "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-    "release": "npm run lint && npm run build -- --environment BUILD:release && node ci/compress.mjs",
-    "preversion": "npm run lint && npm test",
-    "version": "npm run build -- --environment BUILD:release && node ci/compress.mjs && git add ."
+    "dev": "vite",
+    "release": "pnpm lint && pnpm build -- --environment BUILD:release && node ci/compress.mjs",
+    "preversion": "pnpm lint && pnpm test",
+    "version": "pnpm build -- --environment BUILD:release && node ci/compress.mjs && git add ."
   },
   "lint-staged": {
     "js/*.js": [
@@ -51,13 +34,13 @@
     "Firefox >= 30",
     "Safari >= 8"
   ],
-  "engine": "node >= 6",
+  "engine": "node >= 18",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.5.2",
     "archiver": "^7.0.1",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.10.0",
     "jasmine": "^5.1.0",
     "jasmine-browser-runner": "^2.5.0",
@@ -70,7 +53,8 @@
     "sass": "^1.77.8",
     "tslib": "^2.6.3",
     "typescript": "^5.4.3",
-    "typescript-eslint": "^8.6.0"
+    "typescript-eslint": "^8.6.0",
+    "vite": "^7.1.4"
   },
   "files": [
     "dist/css",
