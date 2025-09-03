@@ -10,15 +10,13 @@
   "main": "dist/js/materialize.js",
   "module": "./dist/js/materialize.mjs",
   "exports": {
-    ".": {
       "import": "./dist/js/materialize.mjs",
       "require": "./dist/js/materialize.cjs.js"
-    }
   },
   "files": [
     "dist/css",
     "dist/js",
-    "sass",
+    "sass/**/*.scss",
     "LICENSE"
   ],
   "scripts": {
