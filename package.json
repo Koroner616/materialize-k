@@ -10,9 +10,17 @@
   "main": "dist/js/materialize.js",
   "module": "./dist/js/materialize.mjs",
   "exports": {
-    "import": "./dist/js/materialize.mjs",
-    "require": "./dist/js/materialize.cjs.js"
+    ".": {
+      "import": "./dist/js/materialize.mjs",
+      "require": "./dist/js/materialize.cjs.js"
+    }
   },
+  "files": [
+    "dist/css",
+    "dist/js",
+    "sass",
+    "LICENSE"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "pnpm build && jasmine-browser-runner runSpecs",
@@ -55,11 +63,5 @@
     "typescript": "^5.4.3",
     "typescript-eslint": "^8.6.0",
     "vite": "^7.1.4"
-  },
-  "files": [
-    "dist/css",
-    "dist/js",
-    "sass/**/*.scss",
-    "LICENSE"
-  ]
+  }
 }
