@@ -1,0 +1,31 @@
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+.idea
+.vs
+.vscode
+.project
+.projectile
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+Thumbs.db
+
+# Node logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Ignore lock
+yarn.lock
+
+#dist/

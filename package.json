@@ -1,0 +1,81 @@
+{
+  "name": "@materializecss/materialize",
+  "description": "The responsive front-end library based on Material Design from Google.",
+  "author": "The Materialize Team",
+  "homepage": "https://materializeweb.com",
+  "version": "2.2.2",
+  "style": "dist/css/materialize.css",
+  "sass": "sass/materialize.scss",
+  "typings": "dist/js/materialize.d.ts",
+  "license": "MIT",
+  "main": "dist/js/materialize.js",
+  "module": "./dist/js/materialize.mjs",
+  "exports": {
+    "import": "./dist/js/materialize.mjs",
+    "require": "./dist/js/materialize.cjs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/materializecss/materialize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/materializecss/materialize/issues"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/materializecss"
+    },
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/materialize"
+    }
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run build && jasmine-browser-runner runSpecs",
+    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "release": "npm run lint && npm run build -- --environment BUILD:release && node ci/compress.mjs",
+    "preversion": "npm run lint && npm test",
+    "version": "npm run build -- --environment BUILD:release && node ci/compress.mjs && git add ."
+  },
+  "lint-staged": {
+    "js/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Chrome >= 30",
+    "Firefox >= 30",
+    "Safari >= 8"
+  ],
+  "engine": "node >= 6",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.5.2",
+    "archiver": "^7.0.1",
+    "autoprefixer": "^9.8.6",
+    "eslint": "^9.10.0",
+    "jasmine": "^5.1.0",
+    "jasmine-browser-runner": "^2.5.0",
+    "jasmine-core": "^5.2.0",
+    "postcss": "^8.4.49",
+    "rollup": "^4.20.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.77.8",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^8.6.0"
+  },
+  "files": [
+    "dist/css",
+    "dist/js",
+    "sass/**/*.scss",
+    "LICENSE"
+  ]
+}
